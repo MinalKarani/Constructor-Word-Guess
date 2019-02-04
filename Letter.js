@@ -9,12 +9,10 @@ var Letter=function(character){
     this.characterOutput=function(){
         if(this.ifletterGuessed===true)
         {
-            console.log(this.character);
             return this.character;
         }
         else
         {
-            //console.log("_");
             return "_";
         }
 
@@ -23,10 +21,8 @@ var Letter=function(character){
 
     this.characterGuessed=function(guessedLetter){
         
-        console.log("minal: "+guessedLetter,this.character);
         if(guessedLetter===this.character)
         {
-            console.log("Guessed: "+this.character);
             this.ifletterGuessed=true;
         }
     }
