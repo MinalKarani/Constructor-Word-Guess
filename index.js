@@ -1,6 +1,7 @@
 var word = require("./Word.js");
 var inquirer=require("inquirer");
 var colors = require('colors');
+var chalk = require('chalk');
 
 colors.setTheme({
     custom: ['red', 'underline']
@@ -43,7 +44,7 @@ function letterGuessed(userguess) {
             return true;
         }
         else{
-            console.log("\ntry some other letter!\n".custom);
+            //console.log("\ntry some other letter!\n".custom);
             return false;
         }
     }
@@ -56,7 +57,7 @@ function game()
 {
     var comparisonWord=target.wordString().replace(/ /g, '');
     //display number of guesses remaining to the user
-    console.log("\nGuesses remaining:  "+(-i+10));
+    console.log(chalk.white("\nGuesses remaining:  "+(-i+10)));
     
     if((i<noofGuesses)&&(comparisonWord!=targetword))
     {
@@ -70,7 +71,7 @@ function game()
             {
             name:"guess",
             type:"input",
-            message:"Enter your guess.."
+            message:chalk.white("Enter your guess..")
             }
         ]).then(function(answer){   
             if(letterGuessed(answer.guess))
@@ -87,13 +88,13 @@ function game()
     else if(comparisonWord===targetword)
     {
         console.log("*************************************".rainbow);
-        console.log("Great! You Won! Correct answer was:  "+targetword);
+        console.log(chalk.blue.bold("Great! You Won! Correct answer was:  ")+targetword);
         console.log("*************************************".rainbow);
         inquirer.prompt([
             {
             name:"PlayAgain",
             type:"confirm",
-            message:"Do you want to play again?"
+            message:chalk.white("Do you want to play again?")
             }
         ]).then(function(response){
             //user wants to play again   
@@ -101,7 +102,7 @@ function game()
             targetWord();}
             //user wants to stop
             else{
-            console.log("Please visit again!!\n");}
+            console.log(chalk.white("\nPlease visit again!!\n"));}
         });
     }
     //if total number of attempts exceeded
@@ -114,11 +115,11 @@ function game()
             {
             name:"PlayAgain",
             type:"confirm",
-            message:"Do you want to play again?\n"
+            message:chalk.white("Do you want to play again?\n")
             }
         ]).then(function(response){   
             if(!response.PlayAgain){
-            console.log("Please visit again!!");}
+            console.log(chalk.white("\nPlease visit again!!"));}
             else{
                 targetWord();
             }

@@ -1,4 +1,6 @@
 var letter=require("./Letter.js");
+var chalk = require('chalk');
+
 var Word=function(targetWord)
 {
 
@@ -30,24 +32,24 @@ this.wordGuess = function(guessedWord){
     for(var i=0;i<this.newLetters.length;i++)
     {
             //console.log(this.newLetters[i]);
-            //if (!this.newLetters[i].ifletterGuessed)
-            //{
+            if (!this.newLetters[i].ifletterGuessed)
+            {
             this.newLetters[i].characterGuessed(guessedWord);
-            /*if (this.newLetters[i].ifletterGuessed===true){
+            if (this.newLetters[i].ifletterGuessed===true){
                 flag=true;
             }
-        //}
+        }
                        
     }
     if(flag){
-        console.log("Correct, keep guessing");
+        console.log(chalk.green.bold("\nCorrect, keep guessing"));
     }
     else{
-        console.log("Wrong! Try again!".custom);
-    }*/
+        console.log("\nWrong! Try again!".custom);
+    }
 
 }
 }
-}
+
 // exporting our Word constructor
 module.exports = Word;
