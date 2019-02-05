@@ -1,3 +1,3 @@
 # Constructor-Word-Guess
 
-[![asciicast](CLI-Word-Guess.webm)
+[!video](Word-Guess-CLI1.webm)
