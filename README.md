@@ -1,3 +1,3 @@
 # Constructor-Word-Guess
 
-![video](Word-Guess-CLI1.webm)
+![video](Word-Guess-CLI1.gif)
