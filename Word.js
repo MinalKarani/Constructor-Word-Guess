@@ -19,23 +19,35 @@ this.wordString = function(){
     for(var i=0;i<this.newLetters.length;i++)
     {
         
-        answerWord=answerWord  + this.newLetters[i].characterOutput();
+        answerWord=answerWord  + " " + this.newLetters[i].characterOutput();
     }
     return answerWord;
 
 }
 //A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in `Letter.js`)
 this.wordGuess = function(guessedWord){
-    
+    var flag=false;
     for(var i=0;i<this.newLetters.length;i++)
     {
+            //console.log(this.newLetters[i]);
+            //if (!this.newLetters[i].ifletterGuessed)
+            //{
             this.newLetters[i].characterGuessed(guessedWord);
-            
-        
-}
+            /*if (this.newLetters[i].ifletterGuessed===true){
+                flag=true;
+            }
+        //}
+                       
+    }
+    if(flag){
+        console.log("Correct, keep guessing");
+    }
+    else{
+        console.log("Wrong! Try again!".custom);
+    }*/
 
 }
 }
-
+}
 // exporting our Word constructor
 module.exports = Word;
